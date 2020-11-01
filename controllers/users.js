@@ -51,7 +51,8 @@ class UsersController {
         origin: data.origin,
         email: data.email,
         password: data.password,
-        gender: data.gender
+        gender: data.gender,
+        image: data.image
       }, {where: params})
       .then(rs => defaultResponse(rs))
       .catch(e => errortResponse(e.message, HttpStatus.UNPROCESSABLE_ENTITY));

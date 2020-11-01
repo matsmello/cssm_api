@@ -45,11 +45,14 @@ module.exports = (sequelize, DataType) => {
     },
     gender:{ 
         type: DataType.CHAR(1),
-
         allowNull: false,
         validate: {
             notEmpty: true
         }
+    },
+    image:{
+      type: DataType.BLOB,
+      allowNull:  true
     }
   },
   {
