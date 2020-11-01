@@ -43,7 +43,7 @@ module.exports = (sequelize, DataType) => {
         notEmpty: true
       }
     },
-    genre:{ 
+    gender:{ 
         type: DataType.CHAR(1),
 
         allowNull: false,
