@@ -5,28 +5,28 @@ module.exports = (app) => {
   const usersController = new  UsersController(app.datasource.models.users);
 
   app.route('/users')
+  .post((req, res) => {
+    usersController
+      .create(req.body)
+      .then(rs => {
+        res.json(rs.data);
+        res.status(rs.status);
+
+        if(rs.status === 201){
+          //app.email.send(req.body.email);
+        }     
+      })
+      .catch(error => {
+        console.error(error.message);
+        res.status(error.status);
+      });
+  })
     .all(app.auth.authenticate())
     .get((req, res) => {
       usersController
         .getAll()
         .then(rs => {
           res.json(rs.data);
-        })
-        .catch(error => {
-          console.error(error.message);
-          res.status(error.status);
-        });
-    })
-    .post((req, res) => {
-      usersController
-        .create(req.body)
-        .then(rs => {
-          res.json(rs.data);
-          res.status(rs.status);
-
-          if(rs.status === 201){
-            //app.email.send(req.body.email);
-          }     
         })
         .catch(error => {
           console.error(error.message);
