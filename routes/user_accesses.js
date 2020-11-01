@@ -1,13 +1,13 @@
-const UsersController = require('../controllers/users');
+const User_accessesController = require('../controllers/user_accesses');
 
 module.exports = (app) => {
 
-  const usersController = new  UsersController(app.datasource.models.users);
+  const user_accessesController = new User_accessesController(app.datasource.models.user_accesses);
 
-  app.route('/users')
+  app.route('/user_accesses')
     .all(app.auth.authenticate())
     .get((req, res) => {
-      usersController
+      user_accessesController
         .getAll()
         .then(rs => {
           res.json(rs.data);
@@ -18,7 +18,7 @@ module.exports = (app) => {
         });
     })
     .post((req, res) => {
-      usersController
+      user_accessesController
         .create(req.body)
         .then(rs => {
           res.json(rs.data);
@@ -34,10 +34,10 @@ module.exports = (app) => {
         });
     });
 
-    app.route('/users/:id')
+    app.route('/user_accesses/:id')
       .all(app.auth.authenticate())
       .get((req, res) => {
-        usersController
+        user_accessesController
           .getById(req.params)
           .then(rs => {
             res.json(rs.data);
@@ -48,7 +48,7 @@ module.exports = (app) => {
           });
       })
       .put((req, res) => {
-        usersController
+        user_accessesController
           .update(req.body, req.params)
           .then(rs => {
             res.json(rs.data);
@@ -59,7 +59,7 @@ module.exports = (app) => {
           });
       })
       .delete((req, res) => {
-        usersController
+        user_accessesController
           .delete(req.params)
           .then(rs => {
             res.json(rs.data);
@@ -70,15 +70,4 @@ module.exports = (app) => {
           res.status(error.status);
           });
       });
-
-      /* app.route('/login')
-        .post( async (req, res) => {
-          try{
-            const response = await usersController.signin(req.body);
-            res.json(response);
-          } catch (e) {
-            console.error(e);            
-            res.status(422);
-          } 
-        }); */
-};
+}

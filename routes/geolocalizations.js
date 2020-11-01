@@ -1,13 +1,13 @@
-const UsersController = require('../controllers/users');
+const GeolocalizationsController = require('../controllers/geolocalizations');
 
 module.exports = (app) => {
 
-  const usersController = new  UsersController(app.datasource.models.users);
+  const geolocalizationsController = new GeolocalizationsController(app.datasource.models.geolocalizations);
 
-  app.route('/users')
+  app.route('/geolocalizations')
     .all(app.auth.authenticate())
     .get((req, res) => {
-      usersController
+      geolocalizationsController
         .getAll()
         .then(rs => {
           res.json(rs.data);
@@ -18,7 +18,7 @@ module.exports = (app) => {
         });
     })
     .post((req, res) => {
-      usersController
+      geolocalizationsController
         .create(req.body)
         .then(rs => {
           res.json(rs.data);
@@ -34,10 +34,10 @@ module.exports = (app) => {
         });
     });
 
-    app.route('/users/:id')
+    app.route('/geolocalizations/:id')
       .all(app.auth.authenticate())
       .get((req, res) => {
-        usersController
+        geolocalizationsController
           .getById(req.params)
           .then(rs => {
             res.json(rs.data);
@@ -48,7 +48,7 @@ module.exports = (app) => {
           });
       })
       .put((req, res) => {
-        usersController
+        geolocalizationsController
           .update(req.body, req.params)
           .then(rs => {
             res.json(rs.data);
@@ -59,7 +59,7 @@ module.exports = (app) => {
           });
       })
       .delete((req, res) => {
-        usersController
+        geolocalizationsController
           .delete(req.params)
           .then(rs => {
             res.json(rs.data);
@@ -70,15 +70,4 @@ module.exports = (app) => {
           res.status(error.status);
           });
       });
-
-      /* app.route('/login')
-        .post( async (req, res) => {
-          try{
-            const response = await usersController.signin(req.body);
-            res.json(response);
-          } catch (e) {
-            console.error(e);            
-            res.status(422);
-          } 
-        }); */
-};
+}

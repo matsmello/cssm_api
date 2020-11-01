@@ -9,25 +9,25 @@ module.exports = (sequelize, DataType) => {
       primaryKey: true,
       autoIncrement: true
     },
-    id_user  : {
+    id_user: {
       type: DataType.INTEGER,
       allowNull: false
     },
-    url  : {
+    url: {
       type: DataType.STRING,
       allowNull: false,
       validate: {
         notEmpty: true
       }
     },
-    preset  : {
+    preset: {
       type: DataType.JSON,
       allowNull: false,
       validate: {
         notEmpty: true
       }
     },
-    destination  : {
+    destination: {
       type: DataType.STRING,
       allowNull: false,
       validate: {

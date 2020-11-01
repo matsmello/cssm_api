@@ -9,11 +9,11 @@ module.exports = (sequelize, DataType) => {
       primaryKey: true,
       autoIncrement: true
     },
-    id_user  : {
+    id_user: {
       type: DataType.INTEGER,
       allowNull: false
     },
-    preset  : {
+    preset: {
       type: DataType.JSON,
       allowNull: false,
       validate: {

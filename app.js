@@ -8,6 +8,10 @@ const Email = require('./utils/email');
 const indexRouter = require("./routes/index");
 const userRouter = require('./routes/users');
 const authRouter = require('./routes/auth');
+const geolocalizationRouter = require('./routes/geolocalizations');
+const user_acesssRouter = require('./routes/user_accesses');
+const presetRouter = require('./routes/presets');
+const sharingRouter = require('./routes/sharings');
 
 const authorization = require('./auth');
 
@@ -33,5 +37,9 @@ app.auth = auth;
 indexRouter(app);
 userRouter(app);
 authRouter(app);
+geolocalizationRouter(app);
+user_acesssRouter(app);
+presetRouter(app);
+sharingRouter(app);
 
 module.exports = app;
