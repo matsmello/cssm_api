@@ -22,12 +22,12 @@ _ps: Se precisar de ajuda para fazer um clone, esse [tutorial aqui](https://help
 2. Altere o diretório de trabalho atual para o local em que deseja ter o código do módulo salvo no seu computador.
 3. Faça um clone desse repositório rodando: <br> `git clone https://github.com/matsmello/cssm_api.git`;
 4. Requisitos: `NodeJs, NPM`  instalados;
-5. No alterar os parametros de configuração da base de dados no `\cssm_api\config\config.js`para configuração da base de dados do PostgresSQL
-5.1 database: `Nome da base dados`
-5.2 username: `Usuário da base de dados`
-5.3 password: `Senha da base de dados`
-5.4 params:host `Endereço da base de dados`
-5.5 params:port `Porta de acesso a base de dados`
+5. No alterar os parametros de configuração da base de dados no `\cssm_api\config\config.js`para configuração da base de dados do PostgresSQL:
+* 5.1. database: `Nome da base dados`;
+* 5.2. username: `Usuário da base de dados`;
+* 5.3. password: `Senha da base de dados`;
+* 5.4. params:host `Endereço da base de dados`;
+* 5.5. params:port `Porta de acesso a base de dados`;
 6. Entre na pasta rodando pelo terminal: `cd cssm_api`;
 7. Rode `npm install` para instalar as dependências do projeto;
 8. Rode `npm start` para iniciar o servidor de desenvolvimento.
